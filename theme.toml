@@ -1,0 +1,11 @@
+name = "Skald"
+license = "MIT"
+licenselink = "https://github.com/pabloroman/skald/blob/master/LICENSE"
+description = "A minimalistic and responsive theme for bloggers."
+homepage = "https://github.com/pabloroman/skald"
+tags = ["blog", "minimal", "rss"]
+features = ["blog", "minimal", "rss"]
+
+[author]
+  name = "pabloroman"
+  homepage = "https://pabloroman.es"

@@ -1,0 +1,33 @@
+{{ partial "head.html" . }}
+    <body>
+
+    <section id="home">
+
+        <div class="wrapper">
+            {{ partial "nav.html" . }}
+
+            {{ range .Data.Pages.GroupByDate "2006" }}
+            <ul class="post-list">
+                {{ range .Pages }}
+                <li>
+                    <a href='{{ .Permalink }}'>
+                        {{ .Title }}
+                        {{ if .Site.Params.enableSummary }}
+                            {{ if .Site.Params.useDescriptionReplaceSummary }}
+                                <h2>{{ .Description | plainify }}</h2>
+                            {{ else }}
+                                <h2>{{ .Summary | plainify | htmlUnescape }}</h2>
+                            {{ end }}
+                        {{ end }}
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+            {{ partial "footer.html" . }}
+        </div>
+    </section>
+
+    {{ partial "js.html" . }}
+    </body>
+</html>

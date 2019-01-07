@@ -1,0 +1,23 @@
+{{ partial "head.html" . }}
+    <body>
+
+    <section id="home" class="container">
+        <div class="wrapper">
+            {{ partial "nav.html" . }}
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="wrapper">
+            <h1 class="page-title">{{ with .Site.Params.about }}{{ . }}{{ else }}About{{ end }}</h1>
+            {{ .Content }}
+        </div>
+    </section>
+
+    <section class="container">
+        {{ partial "footer.html" . }}
+    </section>
+
+    {{ partial "js.html" . }}
+    </body>
+</html>

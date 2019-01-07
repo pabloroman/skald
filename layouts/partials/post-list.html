@@ -1,0 +1,18 @@
+<h1 class="section-title">{{ with .Site.Params.archive }}{{ . }}{{ else }}Archive{{ end }}</h1>
+<ul class="post-list">
+    {{ range where .Paginator.Pages "Section" "!=" "" }}
+    {{ $url := replace .Permalink .Site.BaseURL "" }}
+        <li>
+            <a href='{{ .Permalink }}'>
+                <h3 class="post-list-title">{{ .Title }}</h3>
+                {{ if .Site.Params.enableSummary }}
+                    {{ if .Site.Params.useDescriptionReplaceSummary }}
+                        <div class="post-list-description">{{ .Description | plainify }}</div>
+                    {{ else }}
+                    <div class="post-list-description">{{ .Summary | plainify | htmlUnescape }}</div>
+                    {{ end }}
+                {{ end }}
+            </a>
+        </li>
+    {{ end }}
+</ul>

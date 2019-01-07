@@ -1,0 +1,31 @@
+
+<header class="header">
+    <a href='{{ with .Site.Params.avatarLink }}{{ . }}{{ else }}{{ .Site.BaseURL }}{{ end }}'>
+        <img class="header-avatar" src="{{ .Site.BaseURL }}images/avatar@2x.jpg"/>
+    </a>
+
+    <div>
+        <h1 class="header-title">{{ .Site.Title }}</h1>
+        <h2 class="header-bio">{{ .Site.Params.bio | markdownify }}</h2>
+
+        <nav class="header-nav">
+            {{ $url := replace .Permalink .Site.BaseURL "" }}
+            {{ if not .IsHome }}
+                <a class="header-nav-link" href="{{ .Site.BaseURL }}">{{ with .Site.Params.home }}{{ . }}{{ else }}Home{{ end }}</a>
+            {{ end }}
+            <!-- <a class="header-nav-link" href="{{ .Site.BaseURL }}posts">{{ with .Site.Params.archive }}{{ . }}{{ else }}Archive{{ end }}</a> -->
+            <a class="header-nav-link" href="{{ .Site.BaseURL }}about">{{ with .Site.Params.about }}{{ . }}{{ else }}About{{ end }}</a>
+        
+            {{ range $key, $val := .Site.Params.Links }}
+                <a class="header-nav-link" href="{{ $val }}">{{ $key }}</a>
+            {{ end }}
+        
+            {{ if .Site.Params.enableRSS }}
+            <a class="header-nav-link" href="{{ .Site.RSSLink }}">{{ with .Site.Params.subscribe }}{{ . }}{{ else }}RSS{{ end }}</a>
+            {{ end }}
+        </nav>
+
+    </div>
+</header>
+
+
