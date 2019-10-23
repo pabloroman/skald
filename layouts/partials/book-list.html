@@ -1,6 +1,6 @@
 <h1 class="section-title">{{ with .Site.Params.archive }}{{ . }}{{ else }}Archive{{ end }}</h1>
 <ul class="post-list">
-    {{ range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{ range where .Site.RegularPages "Type" "in" "books" }}
     {{ $url := replace .Permalink .Site.BaseURL "" }}
         <li>
             <a href='{{ .Permalink }}'>

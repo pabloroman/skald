@@ -1,6 +1,5 @@
 {{ partial "head.html" . }}
     <body>
-
         <section id="home" class="container">
             <div class="wrapper">
                 {{ partial "nav.html" . }}
@@ -10,11 +9,14 @@
             <div class="wrapper">
             <article>
                 <header class="post-header">
-                    <h1 class="post-title">{{ .Title }}</h1>
                     <h2 class="post-subtitle">
-                    {{ .Date.Format "Jan 2006" }}
-                    · {{ .ReadingTime }} minute read
+                        {{ if eq .Site.Language.Lang "es" }}
+                            {{ index $.Site.Data.es.months (printf "%d" .Date.Month) }} {{ .Date.Year }}
+                        {{ else }}
+                            {{ index $.Site.Data.en.months (printf "%d" .Date.Month) }} {{ .Date.Year }}
+                        {{ end }}
                     </h2>
+                    <h1 class="post-title">{{ .Title }}</h1>
                 </header>
                 <section class="post-content">
                     {{ .Content }}
@@ -29,7 +31,7 @@
             </div>
         </section>
 
-        <section id="posts" class="container">
+        <section id="footer" class="container">
             <div class="wrapper">
                 {{ partial "footer.html"     . }}
             </div>

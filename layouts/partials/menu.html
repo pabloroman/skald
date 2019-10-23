@@ -1,0 +1,14 @@
+<nav class="header-nav">
+    {{ $url := replace .Permalink .Site.BaseURL "" }}
+    {{ if not .IsHome }}
+        <a class="header-nav-link" href="{{ .Site.BaseURL }}">{{ with .Site.Params.home }}{{ . }}{{ else }}Home{{ end }}</a>
+    {{ end }}
+
+    {{ range .Site.Menus.main }}
+    <a class="header-nav-link" href="{{ .URL | absLangURL }}" title="{{ .Title }}">{{ .Name }}</a>
+    {{ end }}
+
+    {{ if .Site.Params.enableRSS }}
+    <a class="header-nav-link" href="{{ .Site.RSSLink }}">{{ with .Site.Params.subscribe }}{{ . }}{{ else }}RSS{{ end }}</a>
+    {{ end }}
+</nav>

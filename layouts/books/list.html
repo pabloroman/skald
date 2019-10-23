@@ -1,0 +1,22 @@
+{{ partial "head.html" . }}
+    <body>
+        <section id="home" class="container">
+            <div class="wrapper">
+                {{ partial "nav.html" . }}
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="wrapper">
+                {{ partial "book-list.html"  . }}
+            </div>
+        </section>
+
+        <section id="footer" class="container">
+            <div class="wrapper">
+                {{ partial "footer.html"     . }}
+            </div>
+        </section>
+    {{ partial "js.html" . }}
+    </body>
+</html>

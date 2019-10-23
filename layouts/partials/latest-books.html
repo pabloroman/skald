@@ -1,10 +1,14 @@
-<h1 class="section-title">{{ with .Site.Params.archive }}{{ . }}{{ else }}Archive{{ end }}</h1>
+
+{{ $kind := where .Site.RegularPages "Type" "in" "books" }}
+{{ $posts := where $kind "URL" "!=" .URL }}
+{{ if gt (len $posts) 0 }}
+
+<h2 class="section-title">{{ .Site.Params.readMore | default "Read more" }}</h2>
 <ul class="post-list">
-    {{ range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-    {{ $url := replace .Permalink .Site.BaseURL "" }}
+    {{ range first 4 $posts }}
         <li>
             <a href='{{ .Permalink }}'>
-                <h3 class="post-list-title">{{ .Title }}</h3>
+                <h4 class="post-list-title">{{ .Title }}</h4>
                 {{ if .Site.Params.enableSummary }}
                     {{ if .Site.Params.useDescriptionReplaceSummary }}
                         <div class="post-list-description">{{ .Description | plainify }}</div>
@@ -16,3 +20,5 @@
         </li>
     {{ end }}
 </ul>
+{{ end }}
+

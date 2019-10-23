@@ -3,6 +3,7 @@
 
     <section id="home" class="container">
         <div class="wrapper">
+            {{ partial "menu.html" . }}
             {{ partial "profile.html" . }}
         </div>
     </section>
@@ -16,7 +17,7 @@
     </section>
     {{ end }}
 
-    <section id="posts" class="container">
+    <section id="footer" class="container">
         <div class="wrapper">
             {{ partial "footer.html"     . }}
         </div>

@@ -92,54 +92,12 @@ table {
 
 
 /* Icons */
-
-@font-face {
-    font-family: 'icons';
-    src: url('../fonts/icons.eot');
-    src: url('../fonts/icons.eot#iefix') format('embedded-opentype'), url('../fonts/icons.woff') format('woff'), url('../fonts/icons.ttf') format('truetype'), url('../fonts/icons.svg#icons') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-[class^="icon-"]:before, [class*=" icon-"]:before {
-    font-family: "icons";
-    font-style: normal;
-    font-weight: normal;
-    speak: none;
+.svg-inline--fa {
     display: inline-block;
-    text-decoration: inherit;
-    text-align: center;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1em;
-}
-
-.icon-facebook:before {
-    content: '\e802';
-}
-
-.icon-facebook-squared:before {
-    content: '\e800';
-}
-
-.icon-twitter:before {
-    content: '\e801';
-}
-
-.icon-twitter-1:before {
-    content: '\e804';
-}
-
-.icon-facebook-circled:before {
-    content: '\e805';
-}
-
-.icon-twitter-circled:before {
-    content: '\e806';
-}
-
-.icon-facebook-rect:before {
-    content: '\e803';
+    font-size: inherit;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -.125em; 
 }
 
 
@@ -196,7 +154,7 @@ h2 {
 }
 
 .wrapper {
-    max-width: 800px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -204,7 +162,7 @@ h2 {
 
 /* Homepage profile */
 
-#home {
+#home, #footer {
     background: #F5F7FA;
 }
 
@@ -250,6 +208,7 @@ h2 {
     height: 50px;
     border-radius: 50%;
     margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 .header-title {
@@ -261,14 +220,34 @@ h2 {
     font-size: 18px;
     font-weight: normal;
     color: #9AA5B1;
+    margin-bottom: 10px;
+}
+
+.header-nav {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.header .header-nav {
+    margin-bottom: 0;
+    text-align: left;
 }
 
 .header-nav-link {
-    color: #47A3F3;
+    color: #0070d0;
     font-weight: 500;
     font-size: 14px;
     margin-right: 10px;
 }
+
+.header-nav-link:hover {
+    border-bottom: 2px solid rgba(0, 112, 208, 0.25);
+}
+
+.header-nav-link:last-child {
+    margin-right: 0;
+}
+
 
 .page-title, .section-title {
     margin-bottom: 15px;
@@ -279,16 +258,16 @@ h2 {
 a, .post-list a:hover {
     text-decoration: none;
     border-bottom: none;
-    color: #47A3F3;
+    color: #0070d0;
 }
 
 p a {
-    color: #47A3F3;
-    border-bottom: 2px solid #BAE3FF;
+    color: #0070d0;
+    border-bottom: 2px solid rgba(0, 112, 208, 0.25);
 }
 
 p a:hover {
-    border-bottom: 2px solid #47A3F3;
+    border-bottom: 2px solid #0070d0;
 }
 
 
@@ -347,6 +326,14 @@ em, i {
     font-size: 18px;
 }
 
+.post-content li {
+    margin-bottom: 10px;
+}
+
+.post-content li:last-child {
+    margin-bottom: 20px;
+}
+
 .post-content p > a {
     word-break: break-word;
     white-space: pre-wrap;
@@ -356,6 +343,20 @@ em, i {
     margin-top: 20px;
     margin-bottom: 10px;
     line-height: 1.5;
+}
+
+.post-content h3 {
+    margin-bottom: 10px;
+}
+
+.post-content figure {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.post-content img {
+    width: auto;
 }
 
 h3, h4, h5 {
@@ -383,13 +384,17 @@ h6 {
     margin-bottom: 6px;
 }
 
-p.small {
+p.small, .colophon {
     color: #9AA5B1;
     font-size: 14px;
     line-height: 1.5;
     display: block;
     text-align: center;
     margin-top: 20px;
+}
+
+.colophon {
+    margin-top: 0;
 }
 
 blockquote {
@@ -399,6 +404,7 @@ blockquote {
 
 hr {
     display: block;
+    clear: both;
     border: none;
     height: 1px;
     margin: 40px auto;
@@ -427,8 +433,8 @@ img {
 }
 
 .post-list-description {
-    font-size: 18px;
-    color: #9AA5B1;
+    font-size: 16px;
+    color: #616E7C;
 }
 
 .post-list-footer {
@@ -485,6 +491,14 @@ img {
     right: -3px;
 }
 
+.book-cover {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.twitter-tweet {
+    margin-bottom: 20px !important;
+}
 
 /* Media Queries */
 
@@ -496,6 +510,11 @@ img {
     .header-avatar {
         width: 80px;
         height: 80px;
+        margin-bottom: 0;
+    }
+
+    .header-bio {
+        margin-bottom: 0;
     }
 
     .page-title, .section-title {
@@ -509,10 +528,11 @@ img {
     .post-title {
         font-size: 36px;
     }
-}
 
-.fa.fa-heart:hover {
-    color: #ff3356;
-    transition: 0.7s ease-out;
-    cursor: pointer;
+    .book-cover {
+        width: 200px;
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 0;
+    }
 }

@@ -9,8 +9,8 @@
 
     <section class="container">
         <div class="wrapper">
-            <h1 class="page-title">{{ .Site.Params.title404 }}</h1>
-            {{ .Site.Params.subtitle404 }}
+            <h1 class="page-title">{{ .Title }}</h1>
+            {{ .Content }}
         </div>
     </section>
 
@@ -21,4 +21,3 @@
     {{ partial "js.html" . }}
     </body>
 </html>
-
