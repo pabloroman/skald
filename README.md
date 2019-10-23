@@ -2,6 +2,8 @@
 
 Skald is clean, fast, minimalistic and multilingual Hugo theme build for https://pabloroman.es/. Feel free to copy it, tweak it and use it for your own site.
 
+Why Skald? Because _code is poetry_.
+
 ## Installation
 
 Just clone the theme to your themes directory:
