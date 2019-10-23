@@ -3,8 +3,8 @@ license = "MIT"
 licenselink = "https://github.com/pabloroman/skald/blob/master/LICENSE.md"
 description = "A minimalistic and responsive theme for bloggers."
 homepage = "https://github.com/pabloroman/skald"
-tags = ["blog", "minimal", "rss"]
-features = ["blog", "minimal", "rss"]
+tags = ["blog", "minimal", "multilingual", "rss"]
+features = ["blog", "minimal", "multilingual", "rss"]
 min_version = 0.20
 
 [author]
